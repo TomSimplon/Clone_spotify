@@ -1,0 +1,78 @@
+.header {
+    background-color: rgb(85, 82, 82);
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 25px;
+}
+
+.gauche {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 80px;
+    height: 80px;
+}
+
+.onglets {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+
+.a {
+    margin-left: 10px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 20px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.a:hover {
+    color: rgb(255, 145, 0);
+}
+
+.droite {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.searchForm {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 20px;
+    border: none;
+}
+
+.inputText {
+    padding: 10px;
+    border: none;
+    margin-right: 10px;
+    width: 200px;
+}
+
+.submitButton {
+    background-color: rgb(0, 99, 228);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-left: -12px;
+}
+
