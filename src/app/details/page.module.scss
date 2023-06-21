@@ -1,0 +1,74 @@
+.details {
+    background: linear-gradient(#006ce0, #d9dceb);
+    height: 100%;
+    margin-top: 0;
+
+    .block {
+        margin-left: 80px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .left {
+                margin-bottom: 30px;
+                margin-top: 30px;
+
+                .btn {
+                display: flex;
+                margin-top: 30px;
+
+                .play {
+                padding: 20px;
+                cursor: pointer;
+                border-radius: 50%;
+                background-color: rgb(9, 177, 9);
+                margin-right: 30px;
+
+                img {
+                    vertical-align: middle;
+                }
+               }
+
+               .favoris {
+                padding-top: 20px;
+
+                img {
+                    cursor: pointer;
+                }
+               }
+
+               .playlist {
+                color: black;
+                font-weight: bold;
+                font-size: 20px;
+                cursor: pointer;
+                margin-left: 30px;
+                padding-top: 30px;
+               }
+
+               .playlist:hover {
+                color: rgb(255, 115, 0);
+                cursor: pointer;
+               }
+              }
+            }
+
+        .right {
+            margin-left: 40px;
+            margin-bottom: 30px;
+            margin-top:30px;
+            max-width: 50%;
+            color: white;
+            font-size: 20px;
+
+            .h1 {
+                font-weight: bold;
+                padding-bottom: 20px;
+            }
+
+            .artiste {
+                font-weight: bold;
+                padding-bottom: 20px;
+            }
+        }
+    }
+}

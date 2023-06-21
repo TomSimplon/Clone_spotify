@@ -1,5 +1,7 @@
-import styles from './header.module.css'
+import styles from './header.module.scss'
 import Image from 'next/image'
+import Link from 'next/link'
+
  
 export default function Header() {
   return (
@@ -8,9 +10,9 @@ export default function Header() {
         <div className={styles.gauche}>
 			 <Image src={"/meusique.jpg"} width={80} height={80}></Image>
           <div className={styles.onglets}>
-            <a className={styles.a} href="/annonce">Accueil</a>
-            <a className={styles.a} href="/login">Votre playlist</a>
-            <a className={styles.a} href="/register">Favoris</a>
+            <a className={styles.a} href="/">Accueil</a>
+            <a className={styles.a} href="/playlist">Votre playlist</a>
+            <a className={styles.a} href="/favoris">Favoris</a>
           </div>
         </div>
         <div className={styles.droite}>
@@ -21,7 +23,7 @@ export default function Header() {
             </button>
           </form>
           <a className={styles.a} href="/user">Se connecter</a>
-		  <a className={styles.a} href="/user">S'inscrire</a>
+		      <a className={styles.a} href="/user">S'inscrire</a>
         </div>
       </nav>
     </div>
