@@ -17,6 +17,15 @@
         .left {
                 margin-bottom: 30px;
                 margin-top: 30px;
+
+                img {
+                    cursor: pointer;
+                    transition: transform 0.25s;
+                }
+
+                img:hover {
+                    transform:scale(1.05);
+                }
             }
 
         .right {

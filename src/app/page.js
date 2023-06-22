@@ -3,7 +3,7 @@ import styles from './page.module.scss'
 import Header from './components/header.jsx'
 import Footer from './components/footer.jsx'
 import Link from 'next/link'
-
+import fetchSpotifyApi from './components/api'
 
 
 export default function Home() {
