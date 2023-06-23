@@ -1,7 +1,7 @@
 import styles from './header.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
-
+import SearchPage from './search'
  
 export default function Header() {
   return (
@@ -16,14 +16,9 @@ export default function Header() {
           </div>
         </div>
         <div className={styles.droite}>
-          <form className={styles.searchForm} action="/search" method="get">
-            <input className={styles.inputText} name="query" type="text" placeholder="Rechercher..." />
-            <button className={styles.submitButton} type="submit">
-              <strong>OK</strong>
-            </button>
-          </form>
-          <a className={styles.a} href="/user">Se connecter</a>
-		      <a className={styles.a} href="/user">S'inscrire</a>
+          <SearchPage />
+          <a className={styles.a} href="">Se connecter</a>
+		      <a className={styles.a} href="">S'inscrire</a>
         </div>
       </nav>
     </div>

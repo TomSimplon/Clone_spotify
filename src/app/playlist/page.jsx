@@ -30,7 +30,7 @@ export default function Playlist() {
         </div>
 
         <div className={styles.btn}>
-            <p className={styles.delete}>Supprimer de vos playlist</p>
+            <p className={styles.delete}>Supprimer de votre playlist</p>
         </div>
 
        </div> 
@@ -53,7 +53,7 @@ export default function Playlist() {
         </div>
 
         <div className={styles.btn}>
-            <p className={styles.delete}>Supprimer de vos playlist</p>
+            <p className={styles.delete}>Supprimer de votre playlist</p>
         </div>
 
        </div> 
@@ -76,7 +76,7 @@ export default function Playlist() {
         </div>
 
         <div className={styles.btn}>
-            <p className={styles.delete}>Supprimer de vos playlist</p>
+            <p className={styles.delete}>Supprimer de votre playlist</p>
         </div>
 
        </div> 

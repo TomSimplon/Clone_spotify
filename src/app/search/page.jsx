@@ -1,58 +1,29 @@
+"use client"
+
 import Image from 'next/image'
 import styles from './page.module.scss'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Link from 'next/link'
-
+import { useState } from "react";
 
 export default function Search() {
+  const [results, setResults] = useState([]); 
+
   return (
       <div className='body'>
-      <Header />
+      <Header setResults={setResults} /> 
 
       <h2 className={styles.h2}>Résultats pour ""</h2>
       <div className={styles.container}>
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
+      {results.map((result) => (
+        <div key={result.id} className={styles.block}>
+          <Image src={result.images[0].url} width={200} height={200}></Image>
+          <p className={styles.title}>{result.name}</p>
+          <p className={styles.p}>{result.artists[0].name}</p>
+          <p className={styles.date}>{new Date(result.album.release_date).toLocaleDateString()}</p>
         </div>
-
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
-        </div>
-
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
-        </div>
-
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
-        </div>
-
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
-        </div>
-
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
-        </div>
+      ))}
       </div>
 
       <div className={styles.pagination}>
