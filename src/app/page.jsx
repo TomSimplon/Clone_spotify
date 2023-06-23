@@ -12,7 +12,8 @@ export default async function Home() {
   const data_albums = await fetchSpotifyApi("browse/new-releases?country=fr&offset=0")
   const data_artistes = await fetchSpotifyApi("artists/0TnOYISbd1XYRBk9myaseg/top-tracks?market=fr")
   const topTracks = data_artistes.tracks;
-  
+  const data_playlist = await fetchSpotifyApi("playlists/3cEYpjA9oz9GiPac4AsH4n?market=fr")
+  const playlistTracks = data_playlist.tracks.items;
   
   return (
     <div className='body'>
@@ -47,47 +48,15 @@ export default async function Home() {
 
       <h2 className={styles.h2}>Tops playlists :</h2>
       <div className={styles.container}>
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
-        </div>
+      {playlistTracks.map(track => (
+          <div key={track.track.id} className={styles.block}>
+            <Image src={track.track.album.images[0].url} width={200} height={200} alt="miniature" />
+            <p className={styles.title}>{track.track.name}</p>
+            <p className={styles.p}>{track.track.artists[0].name}</p>
+            <p className={styles.date}>{new Date(track.track.album.release_date).toLocaleDateString()}</p>
+          </div>
+        ))}
 
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
-        </div>
-
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
-        </div>
-
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
-        </div>
-
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
-        </div>
-
-        <div className={styles.block}>
-          <Image src={"/meusique.jpg"} width={200} height={200}></Image>
-          <p className={styles.title}>Titre</p>
-          <p className={styles.p}>Artiste</p>
-          <p className={styles.date}>Date</p>
-        </div>
       </div>
 
      <Footer />
