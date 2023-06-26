@@ -10,13 +10,18 @@ const SearchPage = () => {
     const handleSearchInput = (event) => {
         setSearch(event.target.value)
     }
+    console.log(search)
 
-    const handleSearchSubmit = async () => {
+    const handleSearchSubmit = async (event) => {
+      event.preventDefault();
         try {
-          const response = await fetchSpotifyApi(`search?type=&market=fr&q=${search}&limit=25&offset=0`);
+          const response = await fetchSpotifyApi(`search?q=${search}&type=album&market=fr&limit=25&offset=0`);
+          // https://api.spotify.com/v1/search?q=pitbull&type=album&market=fr&limit=25&offset=0
           const data = await response.json();
-          setResults(data.results);
           console.log(data)
+
+          setResults(data.results);
+
         } catch (error) {
           console.error(error);
         }
@@ -25,7 +30,7 @@ const SearchPage = () => {
     return (
         <form className={styles.searchForm} action="/search" method="get">
           <input className={styles.inputText} name="query" type="text" placeholder="Rechercher..." onChange={handleSearchInput} />
-          <button className={styles.submitButton} type="submit" onChange={handleSearchSubmit}>
+          <button className={styles.submitButton} type="submit" onChange={() => handleSearchSubmit()}>
             <strong>OK</strong>
           </button>
         </form>

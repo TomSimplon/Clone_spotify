@@ -9,6 +9,7 @@ import { useState } from "react";
 
 export default function Search() {
   const [results, setResults] = useState([]); 
+  console.log(results)
 
   return (
       <div className='body'>
@@ -18,7 +19,7 @@ export default function Search() {
       <div className={styles.container}>
       {results.map((result) => (
         <div key={result.id} className={styles.block}>
-          <Image src={result.images[0].url} width={200} height={200}></Image>
+          <Image src={result.images[0].url} width={200} height={200} classname="miniature"></Image>
           <p className={styles.title}>{result.name}</p>
           <p className={styles.p}>{result.artists[0].name}</p>
           <p className={styles.date}>{new Date(result.album.release_date).toLocaleDateString()}</p>
