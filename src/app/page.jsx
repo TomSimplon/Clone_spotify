@@ -26,7 +26,7 @@ export default async function Home() {
       <div className={styles.container}>
       {data_albums.albums.items.map(album => (
           <div key={album.id} className={styles.block}>
-          <Image src={album.images[0].url} width={200} height={200} alt="miniature" />
+          <Image src={album.images[0].url} width={200} height={200} alt="miniature" className='miniature' />
             <p className={styles.title}>{album.name}</p>
             <p className={styles.p}>{album.artists[0].name}</p>
             <p className={styles.date}>{new Date(album.release_date).toLocaleDateString()}</p>

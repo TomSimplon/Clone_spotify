@@ -22,6 +22,27 @@ const fetchSpotifyApi = async (url) => {
     }
 }
 
+const fetchClientSpotifyApi = async (url, token) => {
+
+    if (token) {
+        try {
+            const response = await axios.get(
+                'https://api.spotify.com/v1/' + url,
+                {
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    }
+                });
+
+            if (response.status === 200) {
+                return response.data;
+            }
+        } catch (error) {
+            return null
+        }
+    }
+}
+
 const getSpotifyAuthToken = async () => {
     const options = {
         url: process.env.SPOTIFY_TOKEN_URL,
@@ -50,3 +71,5 @@ const getSpotifyAuthToken = async () => {
 }
 
 export default fetchSpotifyApi
+
+export {getSpotifyAuthToken, fetchClientSpotifyApi}
