@@ -15,7 +15,7 @@ export default async function Search() {
 
       <SearchList token={token} />
 
-     <Footer />
+      <Footer />
     </div>
 
   )

@@ -1,5 +1,3 @@
-
-
 import Image from 'next/image'
 import styles from './page.module.scss'
 import Header from './components/header'
@@ -14,6 +12,7 @@ export default async function Home() {
   const topTracks = data_artistes.tracks;
   const data_playlist = await fetchSpotifyApi("playlists/3cEYpjA9oz9GiPac4AsH4n?market=fr")
   const playlistTracks = data_playlist.tracks.items;
+
   
   return (
     <div className='body'>
@@ -26,7 +25,9 @@ export default async function Home() {
       <div className={styles.container}>
       {data_albums.albums.items.map(album => (
           <div key={album.id} className={styles.block}>
-          <Image src={album.images[0].url} width={200} height={200} alt="miniature" className='miniature' />
+            <Link href={`/details/${album.id}`}>           
+                <Image src={album.images[0].url} width={200} height={200} alt="miniature" className="miniature"  />             
+            </Link>
             <p className={styles.title}>{album.name}</p>
             <p className={styles.p}>{album.artists[0].name}</p>
             <p className={styles.date}>{new Date(album.release_date).toLocaleDateString()}</p>
@@ -38,7 +39,9 @@ export default async function Home() {
       <div className={styles.container}>
       {topTracks.map(track => (
           <div key={track.id} className={styles.block}>
-            <Image src={track.album.images[0].url} width={200} height={200} alt="miniature" />
+            <Link href={`/details/${track.id}`}>
+               <Image src={track.album.images[0].url} width={200} height={200} alt="miniature" className="miniature"  />
+            </Link>
             <p className={styles.title}>{track.name}</p>
             <p className={styles.p}>{track.artists[0].name}</p>
             <p className={styles.date}>{new Date(track.album.release_date).toLocaleDateString()}</p>
@@ -50,7 +53,9 @@ export default async function Home() {
       <div className={styles.container}>
       {playlistTracks.map(track => (
           <div key={track.track.id} className={styles.block}>
-            <Image src={track.track.album.images[0].url} width={200} height={200} alt="miniature" />
+            <Link href={`/details/${track.track.id}`}>         
+              <Image src={track.track.album.images[0].url} width={200} height={200} alt="miniature" className="miniature"  />         
+            </Link>
             <p className={styles.title}>{track.track.name}</p>
             <p className={styles.p}>{track.track.artists[0].name}</p>
             <p className={styles.date}>{new Date(track.track.album.release_date).toLocaleDateString()}</p>
@@ -63,4 +68,6 @@ export default async function Home() {
     </div>
   )
 }
+
+
 
