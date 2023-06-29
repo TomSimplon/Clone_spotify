@@ -16,7 +16,7 @@ export default async function Home() {
   
   return (
     <div className='body'>
-      <Header />
+    
       <div className={styles.bannière}>
         <h1 className={styles.h1}>Bienvenue sur "Meusique", le site où on fait la fête en rythme ! Préparez-vous à une expérience musicale à faire "moo-ve" votre corps et à vous faire "meuh-rrir" de plaisir !</h1>
       </div>
@@ -64,7 +64,6 @@ export default async function Home() {
 
       </div>
 
-     <Footer />
     </div>
   )
 }

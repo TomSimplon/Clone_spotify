@@ -11,15 +11,11 @@ import { getSpotifyAuthToken } from '../../components/api'
 export default async function Details({params}) {
    const token = await getSpotifyAuthToken()
 
-  console.log(params)
-
   return (
     <div className='body'>
-      <Header />
  
       <DetailsId token={token} id={params.id} />
 
-      <Footer />
     </div>
   );
 }

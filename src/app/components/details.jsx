@@ -49,55 +49,58 @@ const DetailsId = ({ token, id }) => {
     const itemPlaylist = playlists[0];
 
     const addToFavoritesAlbum = (itemAlbum) => {
-        let favorites = localStorage.getItem('favorites');
-        favorites = favorites ? JSON.parse(favorites) : [];
-      
-        const newFavoriteAlbum = {
-          id: itemAlbum.id,
-          name: itemAlbum.name,
-          image: itemAlbum.images[0].url,
-          artist: itemAlbum.artists[0].name,
-          date: itemAlbum.release_date
-        };
-      
+      let favorites = localStorage.getItem('favorites');
+      favorites = favorites ? JSON.parse(favorites) : [];
+          
+      const newFavoriteAlbum = {
+        id: itemAlbum.id,
+        name: itemAlbum.name,
+        image: itemAlbum.images[0].url,
+        artist: itemAlbum.artists[0].name,
+        date: itemAlbum.release_date
+      };
+    
+      if (!favorites.some(favorite => favorite.id === newFavoriteAlbum.id)) {
         favorites.push(newFavoriteAlbum);
-      
         localStorage.setItem('favorites', JSON.stringify(favorites));
+      }
+    };
+        
+    const addToFavoritesArtist = (itemArtist) => {
+      let favorites = localStorage.getItem('favorites');
+      favorites = favorites ? JSON.parse(favorites) : [];
+    
+      const newFavoriteArtist = {
+        id: itemArtist.id,
+        name: itemArtist.name,
+        image: itemArtist.album.images[0].url,
+        artist: itemArtist.artists[0].name,
+        date: itemArtist.album.release_date
       };
-
-      const addToFavoritesArtist = (itemArtist) => {
-        let favorites = localStorage.getItem('favorites');
-        favorites = favorites ? JSON.parse(favorites) : [];
-      
-        const newFavoriteArtist = {
-          id: itemArtist.id,
-          name: itemArtist.name,
-          image: itemArtist.album.images[0].url,
-          artist: itemArtist.artists[0].name,
-          date: itemArtist.album.release_date
-        };
-      
+          
+      if (!favorites.some(favorite => favorite.id === newFavoriteArtist.id)) {
         favorites.push(newFavoriteArtist);
-      
         localStorage.setItem('favorites', JSON.stringify(favorites));
+      }
+    };
+    
+    const addToFavoritesPlaylist = (itemPlaylist) => {
+      let favorites = localStorage.getItem('favorites');
+      favorites = favorites ? JSON.parse(favorites) : [];
+    
+      const newFavoritePlaylist = {
+        id: itemPlaylist.id,
+        name: itemPlaylist.name,
+        image: itemPlaylist.album.images[0].url,
+        artist: itemPlaylist.artists[0].name,
+        date: itemPlaylist.album.release_date
       };
-
-      const addToFavoritesPlaylist = (itemPlaylist) => {
-        let favorites = localStorage.getItem('favorites');
-        favorites = favorites ? JSON.parse(favorites) : [];
-      
-        const newFavoritePlaylist = {
-          id: itemPlaylist.id,
-          name: itemPlaylist.name,
-          image: itemPlaylist.album.images[0].url,
-          artist: itemPlaylist.artists[0].name,
-          date: itemPlaylist.album.release_date
-        };
-      
+          
+      if (!favorites.some(favorite => favorite.id === newFavoritePlaylist.id)) {
         favorites.push(newFavoritePlaylist);
-      
         localStorage.setItem('favorites', JSON.stringify(favorites));
-      };
+      }
+    };
 
 
     return (

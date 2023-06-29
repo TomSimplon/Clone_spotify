@@ -12,15 +12,8 @@ export default function Favoris() {
 
   const [favorites, setFavorites] = useState([]);
 
-  // const loadFavorites = () => {
-  //   const loadedFavorites = localStorage.getItem('favorites');
-  //   console.log(loadedFavorites)
-  //   setFavorites(loadedFavorites ? JSON.parse(loadedFavorites) : []);
-  // };
-
   useEffect(() => {
     const loadedFavorites = localStorage.getItem('favorites');
-    console.log(loadedFavorites)
     setFavorites(loadedFavorites ? JSON.parse(loadedFavorites) : []);
   }, []);
 
@@ -28,16 +21,12 @@ export default function Favoris() {
     const updatedFavorites = favorites.filter(favorite => favorite.id !== favoriteId);
     setFavorites(updatedFavorites);
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites)); 
-    loadFavorites(); // Ajout de cette ligne
-  };
-
-  console.log(favorites)
-   
+  };   
   
 
   return (
     <div className='body'>
-      <Header />
+     
 
       <div className={styles.favoris}>
         <h1 className={styles.title}>Liste de vos favoris</h1>
@@ -66,7 +55,7 @@ export default function Favoris() {
           </div>
         ))}
 
-        <Footer />
+        
       </div>
     </div>
   )

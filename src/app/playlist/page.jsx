@@ -8,7 +8,6 @@ import Link from 'next/link'
 export default function Playlist() {
   return (
     <div className='body'>
-      <Header />
 
     <div className={styles.playlist}>
       <h1 className={styles.title}>Liste de vos playlist</h1>
@@ -83,7 +82,6 @@ export default function Playlist() {
       </div>
     </div>
 
-     <Footer />
     </div>
   )
 }

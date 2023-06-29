@@ -11,11 +11,9 @@ export default async function Search() {
 
   return (
       <div className='body'>
-      <Header  /> 
 
       <SearchList token={token} />
 
-      <Footer />
     </div>
 
   )
