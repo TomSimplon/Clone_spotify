@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { fetchClientSpotifyApi } from "./api"
 import styles from '../details/[id]/page.module.scss'
 import Image from 'next/image';
+import Link from "next/link";
 
 const DetailsId = ({ token, id }) => {
     const [albums, setAlbums] = useState([]);
@@ -47,6 +48,58 @@ const DetailsId = ({ token, id }) => {
     const itemArtist = tracks[0];
     const itemPlaylist = playlists[0];
 
+    const addToFavoritesAlbum = (itemAlbum) => {
+        let favorites = localStorage.getItem('favorites');
+        favorites = favorites ? JSON.parse(favorites) : [];
+      
+        const newFavoriteAlbum = {
+          id: itemAlbum.id,
+          name: itemAlbum.name,
+          image: itemAlbum.images[0].url,
+          artist: itemAlbum.artists[0].name,
+          date: itemAlbum.release_date
+        };
+      
+        favorites.push(newFavoriteAlbum);
+      
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+      };
+
+      const addToFavoritesArtist = (itemArtist) => {
+        let favorites = localStorage.getItem('favorites');
+        favorites = favorites ? JSON.parse(favorites) : [];
+      
+        const newFavoriteArtist = {
+          id: itemArtist.id,
+          name: itemArtist.name,
+          image: itemArtist.album.images[0].url,
+          artist: itemArtist.artists[0].name,
+          date: itemArtist.album.release_date
+        };
+      
+        favorites.push(newFavoriteArtist);
+      
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+      };
+
+      const addToFavoritesPlaylist = (itemPlaylist) => {
+        let favorites = localStorage.getItem('favorites');
+        favorites = favorites ? JSON.parse(favorites) : [];
+      
+        const newFavoritePlaylist = {
+          id: itemPlaylist.id,
+          name: itemPlaylist.name,
+          image: itemPlaylist.album.images[0].url,
+          artist: itemPlaylist.artists[0].name,
+          date: itemPlaylist.album.release_date
+        };
+      
+        favorites.push(newFavoritePlaylist);
+      
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+      };
+
+
     return (
         <div className={styles.details}>
 
@@ -59,7 +112,9 @@ const DetailsId = ({ token, id }) => {
                        <Image src={"/play.png"} width={40} height={40} />
                    </div>
                    <div className={styles.favoris}>
-                       <Image src={"/coeur-blanc.png"} width={40} height={40} />
+                    <Link href={`/favoris`}>
+                      <Image src={"/coeur-blanc.png"} width={40} height={40} onClick={() => addToFavoritesAlbum(itemAlbum)}/>
+                    </Link>
                    </div>
                    <p className={styles.playlist}>Ajouter à la playlist</p>
                </div>
@@ -85,7 +140,9 @@ const DetailsId = ({ token, id }) => {
                             <Image src={"/play.png"} width={40} height={40} />
                         </div>
                         <div className={styles.favoris}>
-                            <Image src={"/coeur-blanc.png"} width={40} height={40} />
+                         <Link href={`/favoris`}>
+                           <Image src={"/coeur-blanc.png"} width={40} height={40} onClick={() => addToFavoritesArtist(itemArtist)}/>
+                         </Link>
                         </div>
                         <p className={styles.playlist}>Ajouter à la playlist</p>
                     </div>
@@ -110,7 +167,9 @@ const DetailsId = ({ token, id }) => {
                             <Image src={"/play.png"} width={40} height={40} />
                         </div>
                         <div className={styles.favoris}>
-                            <Image src={"/coeur-blanc.png"} width={40} height={40} />
+                          <Link href={`/favoris`}>
+                            <Image src={"/coeur-blanc.png"} width={40} height={40} onClick={() => addToFavoritesPlaylist(itemPlaylist)}/>
+                          </Link>                          
                         </div>
                         <p className={styles.playlist}>Ajouter à la playlist</p>
                     </div>

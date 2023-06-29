@@ -24,15 +24,5 @@ export default async function Details({params}) {
   );
 }
 
-// export async function getServerSideProps({ query }) {
-//   const { id } = query;
-  
-//   console.log(itemData);
 
-//   return {
-//     props: {
-//       item: itemData,
-//     },
-//   };
-// }
 
