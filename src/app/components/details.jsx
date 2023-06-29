@@ -102,6 +102,60 @@ const DetailsId = ({ token, id }) => {
       }
     };
 
+    const addToPlaylistAlbum = (itemAlbum) => {
+      let playlists = localStorage.getItem('playlists');
+      playlists = playlists ? JSON.parse(playlists) : [];
+          
+      const newPlaylistAlbum = {
+        id: itemAlbum.id,
+        name: itemAlbum.name,
+        image: itemAlbum.images[0].url,
+        artist: itemAlbum.artists[0].name,
+        date: itemAlbum.release_date
+      };
+    
+      if (!playlists.some(playlist => playlist.id === newPlaylistAlbum.id)) {
+        playlists.push(newPlaylistAlbum);
+        localStorage.setItem('playlists', JSON.stringify(playlists));
+      }
+    };
+        
+    const addToPlaylistsArtist = (itemArtist) => {
+      let playlists = localStorage.getItem('playlists');
+      playlists = playlists ? JSON.parse(playlists) : [];
+    
+      const newPlaylistArtist = {
+        id: itemArtist.id,
+        name: itemArtist.name,
+        image: itemArtist.album.images[0].url,
+        artist: itemArtist.artists[0].name,
+        date: itemArtist.album.release_date
+      };
+          
+      if (!playlists.some(playlist => playlist.id === newPlaylistArtist.id)) {
+        playlists.push(newPlaylistArtist);
+        localStorage.setItem('playlists', JSON.stringify(playlists));
+      }
+    };
+    
+    const addToPlaylistsPlaylist = (itemPlaylist) => {
+      let playlists = localStorage.getItem('playlists');
+      playlists = playlists ? JSON.parse(playlists) : [];
+    
+      const newPlaylistinPlaylist = {
+        id: itemPlaylist.id,
+        name: itemPlaylist.name,
+        image: itemPlaylist.album.images[0].url,
+        artist: itemPlaylist.artists[0].name,
+        date: itemPlaylist.album.release_date
+      };
+          
+      if (!playlists.some(playlist => playlist.id === newPlaylistinPlaylist.id)) {
+        playlists.push(newPlaylistinPlaylist);
+        localStorage.setItem('playlists', JSON.stringify(playlists));
+      }
+    };
+
 
     return (
         <div className={styles.details}>
@@ -119,7 +173,9 @@ const DetailsId = ({ token, id }) => {
                       <Image src={"/coeur-blanc.png"} width={40} height={40} onClick={() => addToFavoritesAlbum(itemAlbum)}/>
                     </Link>
                    </div>
-                   <p className={styles.playlist}>Ajouter à la playlist</p>
+                   <Link href={`/playlist`}>
+                     <p className={styles.playlist} onClick={() => addToPlaylistAlbum(itemAlbum)}>Ajouter à la playlist</p>
+                   </Link>
                </div>
            </div>
 
@@ -147,7 +203,9 @@ const DetailsId = ({ token, id }) => {
                            <Image src={"/coeur-blanc.png"} width={40} height={40} onClick={() => addToFavoritesArtist(itemArtist)}/>
                          </Link>
                         </div>
-                        <p className={styles.playlist}>Ajouter à la playlist</p>
+                        <Link href={`/playlist`}>
+                          <p className={styles.playlist} onClick={() => addToPlaylistsArtist(itemArtist)}>Ajouter à la playlist</p>
+                        </Link>
                     </div>
                 </div>
 
@@ -174,7 +232,9 @@ const DetailsId = ({ token, id }) => {
                             <Image src={"/coeur-blanc.png"} width={40} height={40} onClick={() => addToFavoritesPlaylist(itemPlaylist)}/>
                           </Link>                          
                         </div>
-                        <p className={styles.playlist}>Ajouter à la playlist</p>
+                        <Link href={`/playlist`}>
+                          <p className={styles.playlist} onClick={() => addToPlaylistsPlaylist(itemPlaylist)}>Ajouter à la playlist</p>
+                        </Link>
                     </div>
                 </div>
 
