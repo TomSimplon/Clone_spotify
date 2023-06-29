@@ -1,10 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Clone de Spotify
 
-## Getting Started
+- Lien vers la maquette : https://www.figma.com/file/QMjliUnCfOrC40U4bPvvBQ/meusique?node-id=1%3A4&mode=dev
 
-First, run the development server:
+- Cahier des charges : https://docs.google.com/document/d/100A77_zOCEjuO9qziEkP7V9xTc7Z_CoqEXwz2ChW-UM/edit 
 
-```bash
+- Démarrer le projet : 
+
+```shell
+npm install
+```
+
+```shell
+mv .env.dist .env #Pensez à renseigner vos informations API
+```
+
+```shell
 npm run dev
 # or
 yarn dev
@@ -12,23 +22,23 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Context du projet
 
-## Learn More
+- Votre agence a décroché le contrat pour développer une plateforme de musique. Elle souhaite que vous développiez un nouveau MVP pour convaincre le client de leur confier la réalisation de ce projet. Libre à vous de vous inspirer de Spotify et autres sites de streaming.
 
-To learn more about Next.js, take a look at the following resources:
+- Néanmoins vous devrez satisfaire les contraintes techniques et fonctionnelles fournies par l’agence dans le cahier des charges.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Pour la réalisation du projet vous utiliserez l’API de Spotify, les instructions à suivre pour vous créer un compte et obtenir une clé d’authentification se trouvent dans le cahier des charges. Personne au sein de l’agence n’a déjà utilisé cette API mais la documentation est très bien faite.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Critères de performance
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Le site respecte le cahier des charges
+- Les fonctionnalités attendues ne produisent pas d’erreurs.
+- Le site est responsive est s’adapte à un maximum d’écran.
+- Les fichiers sont découpés de manière pertinentes et les assets sont organisés.
+- Les / les page(s) est/sont fonctionnelle(s).
+- Respect des bonnes pratiques de nommages / indentation / sémantique.
