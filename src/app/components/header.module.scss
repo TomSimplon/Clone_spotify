@@ -157,6 +157,23 @@
         flex-direction: column;
         align-self: flex-start;
 
+        .modal {
+          width: 100%;
+          height: auto;
+        }
+
+        .modalContent {
+          width: 90%;
+          height: 80vh; 
+          margin: 5% auto;
+          padding: 5px;
+        }
+        
+        .videoPlayer {
+          width: 100%;
+          height: 100%;
+        }
+
         .onglets {
           flex-direction: column;
           align-items: flex-start;
@@ -164,18 +181,17 @@
       }
 
       .droite {
-        margin-top: 20px;
+        margin-top: 0;
         flex-direction: column;
         align-self: flex-start;
 
-        .form {
+        .searchForm {
           padding-left: 30px;
         }
       }
     }
   }
 }
-
 
 
 
