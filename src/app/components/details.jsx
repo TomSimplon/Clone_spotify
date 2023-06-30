@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { fetchClientSpotifyApi } from "./api"
 import styles from '../details/[id]/page.module.scss'
 import Image from 'next/image';
@@ -10,6 +10,7 @@ const DetailsId = ({ token, id }) => {
     const [albums, setAlbums] = useState([]);
     const [tracks, setArtists] = useState([]);
     const [playlists, setPlaylists] = useState([]);
+    const audioRef = useRef(null);
 
     console.log(token)
     console.log(id)
@@ -156,9 +157,18 @@ const DetailsId = ({ token, id }) => {
       }
     };
 
+    const handlePlayClick = () => {
+      if (audioRef.current.paused) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+
 
     return (
         <div className={styles.details}>
+          <audio styles={styles.audio} ref={audioRef} src="/assets/audio.mp3" preload="auto"></audio>
 
             {itemAlbum && (
               <div className={styles.block}>
@@ -166,7 +176,7 @@ const DetailsId = ({ token, id }) => {
                <Image src={itemAlbum.images[0].url} width={300} height={300} />
                <div className={styles.btn}>
                    <div className={styles.play}>
-                       <Image src={"/play.png"} width={40} height={40} />
+                       <Image src={"/play.png"} width={40} height={40} onClick={handlePlayClick} />
                    </div>
                    <div className={styles.favoris}>
                     <Link href={`/favoris`}>
@@ -196,7 +206,7 @@ const DetailsId = ({ token, id }) => {
                     <Image src={itemArtist.album.images[0].url} width={300} height={300} />
                     <div className={styles.btn}>
                         <div className={styles.play}>
-                            <Image src={"/play.png"} width={40} height={40} />
+                           <Image src={"/play.png"} width={40} height={40} onClick={handlePlayClick} />
                         </div>
                         <div className={styles.favoris}>
                          <Link href={`/favoris`}>
@@ -225,7 +235,7 @@ const DetailsId = ({ token, id }) => {
                     <Image src={itemPlaylist.album.images[0].url} width={300} height={300} />
                     <div className={styles.btn}>
                         <div className={styles.play}>
-                            <Image src={"/play.png"} width={40} height={40} />
+                           <Image src={"/play.png"} width={40} height={40} onClick={handlePlayClick} />
                         </div>
                         <div className={styles.favoris}>
                           <Link href={`/favoris`}>

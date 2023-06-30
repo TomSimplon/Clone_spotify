@@ -1,94 +1,182 @@
 .header {
-    background-color: rgb(85, 82, 82);
-    position: sticky;
+  background-color: rgb(85, 82, 82);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  .nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+
+  .gauche {
+  display: flex;
+  flex-wrap: wrap;
+
+  img {
+  cursor: pointer;
+   }
+
+   .modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
     top: 0;
     width: 100%;
-    z-index: 1;
-
-    .nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 0 25px;
-
-    .gauche {
-    display: flex;
-    flex-wrap: wrap;
-
-    .img {
-    padding-top: 5px;
-    padding-bottom: 5px;
-     }
-
-     .onglets {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 10px;
-
-    .a {
-    margin-left: 10px;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modalContent {
+    position: relative;
+    margin: 15% auto;
     padding: 20px;
-    margin-top: 10px;
-    font-size: 20px;
+    width: 80%;
+  }
+  
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    color: #aaa;
+    font-size: 28px;
     font-weight: bold;
-    }
-
-    .a:hover {
-    color: rgb(255, 145, 0);
-     }
-    }
-   }
-
-   .droite {
-    display: flex;
-    flex-wrap: wrap;
-
-    .searchForm {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-left: auto;
-    padding-right: 20px;
-    border: none;
-
-    .inputText {
-    padding: 10px;
-    border: none;
-    margin-right: 10px;
-    width: 200px;
-    }
-
-    .submitButton {
-    background-color: rgb(0, 99, 228);
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    margin-left: -12px;
-    }
+  }
+  
+  .videoPlayer {
+    width: 100%;
+  }
+
+   .onglets {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10px;
+
+  .a {
+  margin-left: 10px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  }
+
+  .a:hover {
+  color: rgb(255, 145, 0);
    }
+  }
 
-   .a {
-    margin-left: 10px;
-    color: white;
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 30;
     cursor: pointer;
-    text-decoration: none;
-    padding: 20px;
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: bold;
+  
+    div {
+      width: 2rem;
+      height: 0.25rem;
+      background-color: #fff;
+      border-radius: 10px;
+      transition: all 0.3s linear;
+      position: relative;
+      transform-origin: 1px;
     }
+  }
+  .onglets.active {
+    transform: translateX(0%);
+  }
+ }
 
-    .a:hover {
-    color: rgb(255, 145, 0);
-    }
+ .droite {
+  display: flex;
+  flex-wrap: wrap;
+
+  .searchForm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: auto;
+  padding-right: 20px;
+  border: none;
+
+  .inputText {
+  padding: 10px;
+  border: none;
+  margin-right: 10px;
+  width: 200px;
+  }
+
+  .submitButton {
+  background-color: rgb(0, 99, 228);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-left: -12px;
+  }
+ }
+
+ .a {
+  margin-left: 10px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  }
+
+  .a:hover {
+  color: rgb(255, 145, 0);
+   }
   }
  }
 }
+
+@media screen and (max-width: 640px) {
+  .header {
+    .nav {
+      flex-direction: column;
+      align-self: flex-start;
+
+      .gauche {
+        display: flex;
+        margin-bottom: 20px;
+        flex-direction: column;
+        align-self: flex-start;
+      }
+
+      .droite {
+        display: flex;
+        margin-top: 20px;
+        flex-direction: column;
+        align-self: flex-start;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 

@@ -5,12 +5,14 @@ import styles from './page.module.scss'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Link from 'next/link'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 
 export default function Playlist() {
 
   const [playlists, setPlaylists] = useState([]);
+
+  const audioRef = useRef(null);
 
   useEffect(() => {
     const loadedPlaylists = localStorage.getItem('playlists');
@@ -23,8 +25,18 @@ export default function Playlist() {
     localStorage.setItem('playlists', JSON.stringify(updatedPlaylists)); 
   };   
 
+  const handlePlayClick = () => {
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }
+
   return (
     <div className='body'>
+
+     <audio styles={styles.audio} ref={audioRef} src="/assets/Sans_titre.mp3" preload="auto"></audio>
 
     <div className={styles.playlist}>
       <h1 className={styles.title}>Liste de vos playlist</h1>
@@ -43,7 +55,7 @@ export default function Playlist() {
               </div>
 
               <div className={styles.play}>
-                <Image src={"/play.png"} width={40} height={40} />
+                <Image src={"/play.png"} width={40} height={40} onClick={handlePlayClick}/>
               </div>
 
               <div className={styles.btn}>

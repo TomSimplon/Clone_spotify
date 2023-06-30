@@ -1,3 +1,7 @@
+.audio {
+    display: none;
+}
+
 .playlist {
     background: linear-gradient(#219604, #85f743);
     height: 100%;
@@ -76,3 +80,35 @@
            }
     }
 }
+
+@media screen and (max-width: 640px) {
+    .contenu {
+        .block {
+            display: flex;
+            flex-direction: column;
+            align-self: flex-start;
+            padding-bottom: 50px;
+
+            .left {
+                margin-bottom: 0;
+            }
+
+            .right {
+                margin-bottom: 0;
+                margin-left: 0;
+            }
+
+            .play {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .btn {
+                .delete {
+                    margin-left: 0;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+  }

@@ -10,6 +10,10 @@
     height: 100%;
     margin-top: 0;
 
+    .audio {
+        display: none;
+    }
+
     .block {
         margin-left: 80px;
         display: flex;
@@ -88,3 +92,23 @@
         }
     }
 }
+
+@media screen and (max-width: 640px) {
+      .details {
+        .block {
+            display: flex;
+            flex-direction: column;
+            align-self: flex-start;
+            padding-bottom: 50px;
+
+            .left {
+                margin-bottom: 15px;
+            }
+
+            .right {
+                margin-top: 15px;
+                margin-left: 0;
+            }
+        }
+      }
+  }

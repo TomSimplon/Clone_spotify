@@ -18,7 +18,9 @@ export default async function Home() {
     <div className='body'>
     
       <div className={styles.bannière}>
-        <h1 className={styles.h1}>Bienvenue sur "Meusique", le site où on fait la fête en rythme ! Préparez-vous à une expérience musicale à faire "moo-ve" votre corps et à vous faire "meuh-rrir" de plaisir !</h1>
+        <h1 className={styles.h1}>Bienvenue sur "Meusique", le site où on fait la fête en rythme ! Préparez-vous à une expérience musicale à faire "moo-ve" votre corps et à vous faire "meuh-rrir" de plaisir ! 
+        <br></br>
+        (surtout ne cliquez pas sur la vache !)</h1>
       </div>
 
       <h2 className={styles.h2}>Découvrez nos nouveaux albums :</h2>

@@ -62,4 +62,15 @@
  }
 }
 
+@media screen and (max-width: 640px) {
+  .bannière {
+    .h1 {
+      margin-right: 20px;
+      margin-left: 20px;
+
+      font-size: 25px;
+    }
+  }
+}
+
 
